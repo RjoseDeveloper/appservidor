@@ -16,12 +16,12 @@ header("Access-Control-Allow-Headers:x-request-with, x-requested");
 require_once ("config/db.php");
 require_once ("config/conexion.php");
 
-$query = mysqli_query($con, 'SELECT * FROM  users');
+$query = mysqli_query($con, 'SELECT * FROM  products');
     while ($row=mysqli_fetch_array($query))
     {
-          $user_id=$row['user_id'];
-          $fullname=$row['firstname']." ".$row["lastname"];
-          $user_name=$row['user_name'];
+          $user_id=$row['codigo_producto'];
+          $fullname=$row['nombre_producto']." / ".$row["stock"];
+          $user_name=$row['precio_producto'];
         
           $vector[] = array('user_id'=>$user_id,'fullname'=>$fullname,'user'=>$user_name);
     }
